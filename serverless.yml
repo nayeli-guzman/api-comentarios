@@ -17,12 +17,14 @@ provider:
 functions:
   crear:
     handler: comentario.lambda_handler
+    timeout: 30  # Mantener el timeout de la función Lambda a 30 segundos
     events:
       - http:
           path: /comentario/crear
           method: post
           cors: true
           integration: lambda
+          timeout: 30
 
 resources:
   Resources:
